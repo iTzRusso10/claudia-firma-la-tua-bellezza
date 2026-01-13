@@ -170,7 +170,7 @@ export const ContactSection = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-card p-6 md:p-8 rounded-2xl shadow-soft">
+          <div className="bg-card p-6 md:p-8 rounded-2xl shadow-soft h-fit">
             <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
               Inviaci un messaggio
             </h3>
