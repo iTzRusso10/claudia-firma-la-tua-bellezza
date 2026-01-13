@@ -178,7 +178,7 @@ const Services = () => {
                   variant="elegant"
                   size="lg"
                   onClick={() => navigate("/contatti")}
-                  className="gap-2"
+                  className="gap-2 w-full"
                 >
                   Richiedi una consulenza gratuita
                   <ArrowRight className="w-4 h-4" />
