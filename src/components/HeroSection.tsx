@@ -1,14 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-salon.jpg";
 
 export const HeroSection = () => {
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <section
@@ -53,16 +49,13 @@ export const HeroSection = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up animation-delay-400">
             <Button
               variant="hero"
-              onClick={() => scrollToSection("#contatti")}
+              onClick={() => navigate("/contatti")}
               className="group"
             >
               Prenota il tuo appuntamento
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button
-              variant="hero-outline"
-              onClick={() => scrollToSection("#servizi")}
-            >
+            <Button variant="hero-outline" onClick={() => navigate("/servizi")}>
               Scopri i servizi
             </Button>
           </div>

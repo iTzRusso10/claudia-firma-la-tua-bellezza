@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#chi-siamo", label: "Chi Siamo" },
-  { href: "#servizi", label: "Servizi" },
-  { href: "#salone", label: "Il Salone" },
-  { href: "#contatti", label: "Contatti" },
+  { href: "/", label: "Home", isRoute: true },
+  { href: "/servizi", label: "Servizi", isRoute: true },
+  { href: "/contatti", label: "Contatti", isRoute: true },
 ];
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,14 +34,6 @@ export const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMobileMenuOpen(false);
-  };
-
   return (
     <>
       {/* Blur Overlay - covers entire viewport when menu is open */}
@@ -54,38 +47,40 @@ export const Header = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "bg-background/95 backdrop-blur-md shadow-soft"
+            ? "bg-white backdrop-blur-md shadow-soft"
             : "bg-transparent"
         } ${isMobileMenuOpen ? "lg:hidden blur-sm" : ""}`}
       >
         <div className="container mx-auto px-4 md:px-8">
           <nav className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <a
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("#home");
-              }}
+            <Link
+              to="/"
               className="font-serif text-lg md:text-xl font-semibold text-primary tracking-wide"
             >
               Claudia Borelli
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <ul className="hidden lg:flex items-center gap-12">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(link.href);
-                    }}
-                    className="text-sm text-foreground/70 hover:text-primary transition-colors duration-200 font-medium tracking-wide uppercase"
-                  >
-                    {link.label}
-                  </a>
+                  {link.isRoute ? (
+                    <Link
+                      preventScrollReset={false}
+                      to={link.href}
+                      className="text-sm text-foreground/70 hover:text-primary transition-colors duration-200 font-medium tracking-wide uppercase"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => navigate(link.href)}
+                      className="text-sm text-foreground/70 hover:text-primary transition-colors duration-200 font-medium tracking-wide uppercase"
+                    >
+                      {link.label}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -94,7 +89,7 @@ export const Header = () => {
             <Button
               variant="elegant"
               size="sm"
-              onClick={() => scrollToSection("#contatti")}
+              onClick={() => navigate("/contatti")}
               className="hidden lg:flex gap-2"
             >
               <Phone className="w-4 h-4" />
@@ -143,16 +138,22 @@ export const Header = () => {
             <ul className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToSection(link.href);
-                    }}
-                    className="block py-2 text-foreground/80 hover:text-primary transition-colors font-medium text-lg"
-                  >
-                    {link.label}
-                  </a>
+                  {link.isRoute ? (
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="block py-2 text-foreground/80 hover:text-primary transition-colors font-medium text-lg"
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => navigate(link.href)}
+                      className="block py-2 text-foreground/80 hover:text-primary transition-colors font-medium text-lg"
+                    >
+                      {link.label}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
@@ -164,7 +165,10 @@ export const Header = () => {
               variant="elegant"
               size="lg"
               className="w-full gap-2"
-              onClick={() => scrollToSection("#contatti")}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                navigate("/contatti");
+              }}
             >
               <Phone className="w-4 h-4" />
               Prenota Ora

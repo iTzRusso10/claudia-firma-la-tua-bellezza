@@ -1,4 +1,5 @@
 import { Phone, MapPin, Instagram, Facebook } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -45,22 +46,30 @@ export const Footer = () => {
               Link Utili
             </h4>
             <ul className="space-y-3">
-              {[
-                { href: "#home", label: "Home" },
-                { href: "#chi-siamo", label: "Chi Siamo" },
-                { href: "#servizi", label: "Servizi" },
-                { href: "#salone", label: "Il Salone" },
-                { href: "#contatti", label: "Contatti" },
-              ].map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/"
+                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/servizi"
+                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                >
+                  Servizi
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contatti"
+                  className="text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm"
+                >
+                  Contatti
+                </Link>
+              </li>
             </ul>
           </div>
 
