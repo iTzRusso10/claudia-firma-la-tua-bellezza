@@ -34,6 +34,13 @@ export const Header = () => {
     };
   }, [isMobileMenuOpen]);
 
+  const handleNavClick = (href: string, e?: React.MouseEvent) => {
+    if (location.pathname === href) {
+      e?.preventDefault();
+      window.scrollTo(0, 0);
+    }
+  };
+
   return (
     <>
       {/* Blur Overlay - covers entire viewport when menu is open */}
@@ -56,6 +63,7 @@ export const Header = () => {
             {/* Logo */}
             <Link
               to="/"
+              onClick={(e) => handleNavClick("/", e)}
               className="font-serif text-lg md:text-xl font-semibold text-primary tracking-wide"
             >
               Claudia Borelli
@@ -69,6 +77,7 @@ export const Header = () => {
                     <Link
                       preventScrollReset={false}
                       to={link.href}
+                      onClick={(e) => handleNavClick(link.href, e)}
                       className="text-sm text-foreground/70 hover:text-primary transition-colors duration-200 font-medium tracking-wide uppercase"
                     >
                       {link.label}
@@ -89,7 +98,13 @@ export const Header = () => {
             <Button
               variant="elegant"
               size="sm"
-              onClick={() => navigate("/contatti")}
+              onClick={() => {
+                if (location.pathname === "/contatti") {
+                  window.scrollTo(0, 0);
+                } else {
+                  navigate("/contatti");
+                }
+              }}
               className="hidden lg:flex gap-2"
             >
               <Phone className="w-4 h-4" />
@@ -141,7 +156,10 @@ export const Header = () => {
                   {link.isRoute ? (
                     <Link
                       to={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={(e) => {
+                        setIsMobileMenuOpen(false);
+                        handleNavClick(link.href, e);
+                      }}
                       className="block py-2 text-foreground/80 hover:text-primary transition-colors font-medium text-lg"
                     >
                       {link.label}
@@ -167,7 +185,11 @@ export const Header = () => {
               className="w-full gap-2"
               onClick={() => {
                 setIsMobileMenuOpen(false);
-                navigate("/contatti");
+                if (location.pathname === "/contatti") {
+                  window.scrollTo(0, 0);
+                } else {
+                  navigate("/contatti");
+                }
               }}
             >
               <Phone className="w-4 h-4" />
