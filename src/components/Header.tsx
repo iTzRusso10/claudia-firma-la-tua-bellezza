@@ -69,7 +69,7 @@ export const Header = () => {
               }}
               className="font-serif text-lg md:text-xl font-semibold text-primary tracking-wide"
             >
-              Firma la Tua Bellezza
+              Claudia Borelli
             </a>
 
             {/* Desktop Navigation */}

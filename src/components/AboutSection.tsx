@@ -103,7 +103,7 @@ export const AboutSection = () => {
               la sua unicità attraverso la cura dei capelli.
             </p>
             <footer className="mt-6 text-muted-foreground">
-              — Il Team Claudia Firma la Tua Bellezza
+              — Il Team CB ~ Firma la Tua Bellezza
             </footer>
           </blockquote>
         </div>

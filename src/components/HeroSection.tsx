@@ -19,7 +19,7 @@ export const HeroSection = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Interno elegante del salone Claudia Firma la Tua Bellezza"
+          alt="Interno elegante del salone CB ~ Firma la Tua Bellezza"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background/80" />
@@ -31,13 +31,13 @@ export const HeroSection = () => {
           {/* Decorative Element */}
           <div className="mb-6 animate-fade-in">
             <span className="inline-block text-primary/70 text-sm md:text-base tracking-[0.3em] uppercase font-medium">
-              Claudia Firma la Tua Bellezza
+              Firma la Tua Bellezza
             </span>
           </div>
 
           {/* Main Heading */}
           <h1 className="font-serif text-4xl md:text-5xl lg:text-7xl font-semibold text-foreground leading-tight mb-6 animate-fade-in-up">
-            La bellezza dei tuoi capelli
+            La Bellezza dei tuoi Capelli
             <span className="block text-primary italic mt-2">
               in mani esperte
             </span>

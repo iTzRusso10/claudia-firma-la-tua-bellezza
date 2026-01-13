@@ -10,7 +10,7 @@ export const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <h3 className="font-serif text-2xl font-semibold mb-4">
-              Claudia Firma la Tua Bellezza
+              CB ~ Firma la Tua Bellezza
             </h3>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
               Un salone dedicato alla bellezza e alla cura dei tuoi capelli.
@@ -115,7 +115,8 @@ export const Footer = () => {
         <div className="pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-primary-foreground/50 text-sm">
-              © {currentYear} Claudia Firma la Tua Bellezza. Tutti i diritti riservati.
+              © {currentYear} CB ~ Firma la Tua Bellezza. Tutti i diritti
+              riservati.
             </p>
             <div className="flex gap-6">
               <a

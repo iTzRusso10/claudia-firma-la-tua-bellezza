@@ -62,7 +62,7 @@ export const ContactSection = () => {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
-      "Ciao! Vorrei prenotare un appuntamento presso Claudia Firma la Tua Bellezza."
+      "Ciao! Vorrei prenotare un appuntamento presso CB ~ Firma la Tua Bellezza."
     );
     window.open(`https://wa.me/390961367034?text=${message}`, "_blank");
   };
@@ -294,7 +294,7 @@ export const ContactSection = () => {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Mappa del salone Claudia Firma la Tua Bellezza"
+              title="Mappa del salone CB ~ Firma la Tua Bellezza"
             />
           </div>
           {/* Overlay per la mappa */}
@@ -302,7 +302,7 @@ export const ContactSection = () => {
             <div className="flex items-center justify-between">
               <div className="mr-3">
                 <h4 className="font-display font-semibold text-foreground">
-                  Claudia Firma la Tua Bellezza
+                  CB ~ Firma la Tua Bellezza
                 </h4>
                 <p className="font-body text-sm text-muted-foreground">
                   Viale dei Bizantini, 75/2, 88100 Catanzaro CZ
