@@ -11,28 +11,44 @@ const services = [
     title: "Taglio & Piega",
     description:
       "Un taglio studiato per valorizzare il tuo viso e il tuo stile personale. Ogni taglio include consulenza, shampoo e piega professionale.",
-    features: ["Consulenza personalizzata", "Taglio su misura", "Piega inclusa"],
+    features: [
+      "Consulenza personalizzata",
+      "Taglio su misura",
+      "Piega inclusa",
+    ],
   },
   {
     image: serviceColor,
     title: "Colore & Schiariture",
     description:
       "Dai colori classici alle tecniche più innovative come balayage e degradé. Utilizziamo prodotti che rispettano la salute del capello.",
-    features: ["Colorazione classica", "Balayage & Shatush", "Schiariture delicate"],
+    features: [
+      "Colorazione classica",
+      "Balayage & Shatush",
+      "Schiariture delicate",
+    ],
   },
   {
     image: serviceTreatment,
     title: "Trattamenti Curativi",
     description:
       "Trattamenti ristrutturanti e rigeneranti per capelli stressati, secchi o danneggiati. Ridiamo vita e luminosità alla tua chioma.",
-    features: ["Cheratina", "Trattamenti ricostruttivi", "Maschere professionali"],
+    features: [
+      "Cheratina",
+      "Trattamenti ricostruttivi",
+      "Maschere professionali",
+    ],
   },
   {
     image: serviceStyling,
     title: "Styling & Eventi",
     description:
       "Acconciature eleganti per matrimoni, cerimonie e occasioni speciali. Realizziamo il look perfetto per il tuo grande giorno.",
-    features: ["Acconciature sposa", "Look da cerimonia", "Styling personalizzato"],
+    features: [
+      "Acconciature sposa",
+      "Look da cerimonia",
+      "Styling personalizzato",
+    ],
   },
 ];
 
@@ -45,7 +61,7 @@ export const ServicesSection = () => {
   };
 
   return (
-    <section id="servizi" className="py-20 md:py-32 bg-background">
+    <section id="servizi" className="py-20 md:py-32 bg-background/10">
       <div className="container mx-auto px-4 md:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -58,8 +74,8 @@ export const ServicesSection = () => {
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
             Offriamo una gamma completa di servizi per la cura e lo styling dei
-            capelli, sempre con la massima attenzione alla qualità e al benessere
-            del capello.
+            capelli, sempre con la massima attenzione alla qualità e al
+            benessere del capello.
           </p>
         </div>
 
@@ -118,8 +134,9 @@ export const ServicesSection = () => {
         {/* Additional Services Note */}
         <div className="mt-16 text-center">
           <p className="text-muted-foreground mb-6">
-            Non trovi quello che cerchi? Offriamo anche consulenze personalizzate
-            per capire insieme qual è il trattamento più adatto a te.
+            Non trovi quello che cerchi? Offriamo anche consulenze
+            personalizzate per capire insieme qual è il trattamento più adatto a
+            te.
           </p>
           <Button variant="outline" onClick={scrollToContact}>
             Richiedi una consulenza gratuita
